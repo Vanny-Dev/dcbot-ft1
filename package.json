@@ -1,0 +1,19 @@
+{
+  "name": "dcbot-ft1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.12.1",
+    "node-cron": "^3.0.2",
+    "request": "^2.88.2",
+    "undici": "^5.23.0"
+  }
+}
