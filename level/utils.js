@@ -53,27 +53,17 @@ const increaseXp = async (userId, xp) => {
 
 	const isReached = increasedXp > requiredXp;
 
-	if (isReached) {
-		await Level.update(
-			{
-				xp: increasedXp,
-				level: isReached ? level + 1 : level,
-			},
-			{
-				where: { userId },
-			},
-		);
-		return { isLeveledUp: true, level: level + 1 };
-	} else {
-		await Level.update(
-			{
-				xp: increasedXp,
-			},
-			{
-				where: { userId },
-			},
-		);
-	}
+	await Level.update(
+		isReached ? ({
+			xp: increasedXp,
+			level: level + 1
+		}) : ({
+			xp: increasedXp
+		}),
+		{
+			where: { userId },
+		}
+	);
 
 	return { isLeveledUp: false, level: null };
 };

@@ -61,7 +61,7 @@ export default async function (msg, prefix, author) {
   ]);
 
 	const comm = msg.content.replace(prefix, "");
-	await (commands[comm] || (() => {}))(msg);
+	await (commands[comm] || (async () => {}))(msg);
 
   let { isLeveledUp, level } = await increaseXp(id, random.int(5, 8));
 
