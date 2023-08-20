@@ -215,7 +215,7 @@ client.on(Events.MessageCreate, msg => {
 	}
 });
 
-const antiCrash = require('discord-anticrash')
+import { antiCrash } from "discord-anticrash";
 
 const noCrash = new antiCrash(client, {
   enableAntiCrash: 'true'
