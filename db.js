@@ -1,14 +1,8 @@
-const { Database } = require('sqlite3');
- 
-const db = new Database("app.db"); 
+import { Config, Level } from "./level/sequelize.js";
 
-function initializeDB(){
-	db.run(`create table if not exists levels (
-		userId text primary key unique,
-		level integer,
-		xp integer
-	)`.trim());
-	return db;
+async function initializeDB() {
+	await Level.sync();
+	await Config.sync();
 }
 
-module.exports = { initializeDB }
+export { initializeDB };

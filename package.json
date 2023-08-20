@@ -1,24 +1,31 @@
 {
   "name": "dcbot-ft1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Discord bot for OzoneDisco",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -w . -x node ."
+    "dev": "nodemon -w . -x node .",
+    "gen-levels": "node scripts/genLevels",
+    "format": "prettier -w ./**/*.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvacord": "^5.4.10",
     "discord.js": "^14.12.1",
     "node-cron": "^3.0.2",
+    "random": "^4.1.0",
     "request": "^2.88.2",
+    "sequelize": "^6.32.1",
     "sqlite3": "^5.1.6",
     "undici": "^5.23.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.2"
   }
 }
