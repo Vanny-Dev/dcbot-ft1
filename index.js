@@ -1,6 +1,7 @@
 const { Client, Events, GatewayIntentBits, SlashCommandBuilder, AttachmentBuilder } = require('discord.js');
 const request = require('request');
 const { token } = require('./config.json');
+const { initializeDB } = require('./db');
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildVoiceStates] });
@@ -9,13 +10,13 @@ client.once(Events.ClientReady, c => {
     console.log(`Ready! Logged in as ${c.user.tag}`);
 });
 
+const db = initializeDB();
+
 //greetings
 client.on(Events.MessageCreate, msg => {
   let input = msg.content;
   let person = msg.author.toString();
   let prefix = ">";
-
- 
   
   if(!(msg.author.id === "1141665597126619206")){
     if(/[gG]ood\s?[mM]orning+/.test(input)){  
