@@ -215,4 +215,10 @@ client.on(Events.MessageCreate, msg => {
 	}
 });
 
+const antiCrash = require('discord-anticrash')
+
+const noCrash = new antiCrash(client, {
+  enableAntiCrash: 'true'
+});
+
 client.login(token);
